@@ -1,5 +1,9 @@
 # Supercat-skills —— 你的桌面宠物制造机
 
+[![GitHub stars](https://img.shields.io/github/stars/xigua222/supercat-skills?style=social)](https://github.com/xigua222/supercat-skills/stargazers)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![AI Skill](https://img.shields.io/badge/AI%20Skill-Compatible-green)](https://github.com/xigua222/supercat-skills)
+
 > 一句话让 AI 帮你造一只住在屏幕里的猫。
 
 Supercat-skills 是一个专为 AI Agent 设计的 Skill，让你**用自然语言就能从零打造一只桌面宠物**。提供几张素材，剩下的交给 AI：它会帮你检查素材、写代码、跑预览、打包成桌面应用——全程你只需要动动嘴（或者键盘）。
@@ -34,7 +38,7 @@ Supercat-skills 是一个专为 AI Agent 设计的 Skill，让你**用自然语�
 ### 方式一：一行命令安装（推荐）
 
 ```bash
-npx skills add https://github.com/xigua/supercat-skills --skill supercat-skills
+npx skills add https://github.com/xigua222/supercat-skills --skill supercat-skills
 ```
 
 ### 方式二：把下面这段话直接发给 AI
@@ -42,7 +46,7 @@ npx skills add https://github.com/xigua/supercat-skills --skill supercat-skills
 帮我安装 supercat-skills 这个 skill。请按下面步骤做：
 
 1. 确保 `~/.claude/skills/` 目录存在（不存在就创建）
-2. 执行 `git clone https://github.com/xigua/supercat-skills.git ~/.claude/skills/supercat-skills`
+2. 执行 `git clone https://github.com/xigua222/supercat-skills.git ~/.claude/skills/supercat-skills`
 3. 验证：`ls ~/.claude/skills/supercat-skills/` 应该看到 `SKILL.md`、`agents/`、`references/` 三项
 4. 告诉我安装好了，之后我说"帮我做一只桌面宠物"之类的话就会触发这个 skill
 
@@ -51,10 +55,10 @@ npx skills add https://github.com/xigua/supercat-skills --skill supercat-skills
 ### 方式三：手动命令行
 
 ```bash
-git clone https://github.com/xigua/supercat-skills.git ~/.claude/skills/supercat-skills
+git clone https://github.com/xigua222/supercat-skills.git ~/.claude/skills/supercat-skills
 ```
 
-> 如果你使用的是 Trae，请将路径替换为 `~/.agents/skills/supercat-skills`。
+> 不同 IDE 的 Skill 目录可能不同，常见路径：`~/.claude/skills/`、`~/.agents/skills/` 或 `~/.cursor/skills/`，请根据你使用的工具调整。
 
 ---
 
@@ -125,8 +129,8 @@ supercat-skills/
 
 有想法？发现 bug？或者造了一只超酷的宠物想秀一下？
 
-- 提交 [Issue](https://github.com/xigua/supercat-skills/issues) 反馈问题
-- 提交 [PR](https://github.com/xigua/supercat-skills/pulls) 完善 Skill
+- 提交 [Issue](https://github.com/xigua222/supercat-skills/issues) 反馈问题
+- 提交 [PR](https://github.com/xigua222/supercat-skills/pulls) 完善 Skill
 - 点个 Star，让更多人养上桌面宠物
 
 ---
