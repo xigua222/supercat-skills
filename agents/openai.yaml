@@ -1,0 +1,4 @@
+interface:
+  display_name: "Supercat"
+  short_description: "Build asset-driven desktop pets with browser-first preview."
+  default_prompt: "Use $supercat to plan assets, inspect supplied media, preview in browser, then package a desktop pet app."
