@@ -50,9 +50,9 @@ npx skills add https://github.com/xigua222/supercat-skills --skill supercat-skil
 
 Install the skill `supercat-skills` for me. Follow these steps:
 
-1. Make sure the directory `~/.claude/skills/` exists (create it if it doesn't)
-2. Run `git clone https://github.com/xigua222/supercat-skills.git ~/.claude/skills/supercat-skills`
-3. Verify: `ls ~/.claude/skills/supercat-skills/` should show `SKILL.md`, `agents/`, and `references/`
+1. Detect which AI Agent / IDE you are running in, then find its skills directory (e.g., `~/.claude/skills/` for Claude Code, `~/.agents/skills/` for Trae, or the path configured in your IDE settings)
+2. Create the directory if it doesn't exist, then run `git clone https://github.com/xigua222/supercat-skills.git <SKILLS_DIR>/supercat-skills`
+3. Verify: `<SKILLS_DIR>/supercat-skills/` should contain `SKILL.md`, `agents/`, and `references/`
 4. Tell me it's ready; after that, phrases like "build me a desktop pet" should trigger this skill
 
 Copy and paste the above into Claude Code, Cursor, or any AI Agent with shell access and it will install automatically.
@@ -60,10 +60,11 @@ Copy and paste the above into Claude Code, Cursor, or any AI Agent with shell ac
 ### Option 3: Manual CLI
 
 ```bash
-git clone https://github.com/xigua222/supercat-skills.git ~/.claude/skills/supercat-skills
+# Replace <SKILLS_DIR> with your agent's actual skills path
+git clone https://github.com/xigua222/supercat-skills.git <SKILLS_DIR>/supercat-skills
 ```
 
-> Different IDEs use different skill paths. Common locations: `~/.claude/skills/`, `~/.agents/skills/`, or `~/.cursor/skills/`. Adjust accordingly.
+> Common skill paths by agent: `~/.claude/skills/` (Claude Code), `~/.agents/skills/` (Trae), or the directory configured in your IDE's skill settings.
 
 ---
 

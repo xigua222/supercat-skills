@@ -50,9 +50,9 @@ npx skills add https://github.com/xigua222/supercat-skills --skill supercat-skil
 
 帮我安装 supercat-skills 这个 skill。请按下面步骤做：
 
-1. 确保 `~/.claude/skills/` 目录存在（不存在就创建）
-2. 执行 `git clone https://github.com/xigua222/supercat-skills.git ~/.claude/skills/supercat-skills`
-3. 验证：`ls ~/.claude/skills/supercat-skills/` 应该看到 `SKILL.md`、`agents/`、`references/` 三项
+1. 先判断你当前运行在哪个 AI Agent / IDE 里，然后找到它对应的 skills 目录（例如 Claude Code 是 `~/.claude/skills/`，Trae 是 `~/.agents/skills/`，其他工具请在设置里查看）
+2. 如果目录不存在就创建，然后执行 `git clone https://github.com/xigua222/supercat-skills.git <SKILLS_DIR>/supercat-skills`
+3. 验证：`<SKILLS_DIR>/supercat-skills/` 下应该包含 `SKILL.md`、`agents/`、`references/` 三项
 4. 告诉我安装好了，之后我说"帮我做一只桌面宠物"之类的话就会触发这个 skill
 
 把这段话复制粘贴给 Claude Code / Cursor / 任何有 shell 权限的 AI Agent，它会自动完成安装。
@@ -60,10 +60,11 @@ npx skills add https://github.com/xigua222/supercat-skills --skill supercat-skil
 ### 方式三：手动命令行
 
 ```bash
-git clone https://github.com/xigua222/supercat-skills.git ~/.claude/skills/supercat-skills
+# 将 <SKILLS_DIR> 替换为你实际使用的 Agent skills 路径
+git clone https://github.com/xigua222/supercat-skills.git <SKILLS_DIR>/supercat-skills
 ```
 
-> 不同 IDE 的 Skill 目录可能不同，常见路径：`~/.claude/skills/`、`~/.agents/skills/` 或 `~/.cursor/skills/`，请根据你使用的工具调整。
+> 常见路径参考：`~/.claude/skills/`（Claude Code）、`~/.agents/skills/`（Trae），或其他 IDE 设置中指定的 skill 目录。
 
 ---
 
