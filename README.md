@@ -1,83 +1,136 @@
-# Supercat
+# Supercat-skills —— 你的桌面宠物制造机
 
-Supercat 是一个用于构建桌面宠物（Desktop Pet）应用的 AI Skill。它帮助你通过用户提供的视觉素材，快速构建、调试、预览和打包基于 Tauri/Vue 的桌面宠物应用。
+> 一句话让 AI 帮你造一只住在屏幕里的猫。
 
-## 功能特性
+Supercat-skills 是一个专为 AI Agent 设计的 Skill，让你**用自然语言就能从零打造一只桌面宠物**。提供几张素材，剩下的交给 AI：它会帮你检查素材、写代码、跑预览、打包成桌面应用——全程你只需要动动嘴（或者键盘）。
 
-- **素材驱动**：围绕用户提供的 PNG/WebP 序列帧或绿幕视频构建宠物动画
-- **浏览器优先预览**：在打包桌面应用前，先在浏览器中预览交互效果
-- **素材质量检查**：自动检查素材的透明度、循环质量、命名规范等
-- **透明窗口支持**：支持无边框透明窗口、鼠标跟随、拖拽交互
-- **桌面打包**：一键打包为 Windows/macOS/Linux 桌面应用
-- **设置持久化**：用户设置自动保存，重启后保留偏好
+---
 
-## 适用场景
+## 为什么需要 Supercat-skills？
 
-- 桌面伴侣 / 虚拟猫咪 / 吉祥物宠物
-- 透明窗口交互应用
-- 鼠标跟随与点击反馈动画
-- 需要素材 QA 和浏览器预览的桌面宠物工作流
+想做一只会在屏幕边缘散步、追着鼠标跑、被你拖拽还撒娇的桌面宠物？
 
-## 安装使用
+传统方式：你要学 Tauri、折腾透明窗口、写帧动画循环、调绿幕抠图、处理多显示器适配……
 
-### 前提条件
+**有了 Supercat-skills**：你发一句"帮我做一只桌面猫咪"，AI 自动走完整个工程化流程。
 
-- 支持 AI Agent / Skill 系统的 IDE（如 Trae、Cursor 等）
-- Node.js 18+ 和 Rust 工具链（用于 Tauri 打包）
+---
 
-### 安装步骤
+## 它能做什么
 
-1. 克隆本仓库到本地：
+| 能力 | 说明 |
+|------|------|
+| **素材管家** | 告诉你该画什么、怎么命名、导出成什么格式，自动检查透明度和循环质量 |
+| **浏览器预览** | 不用等打包，先在网页里看到宠物跑起来的样子，不满意就改 |
+| **透明窗口** | 无边框、去标题栏、真正"浮"在桌面上的宠物，支持鼠标穿透和拖拽 |
+| **鼠标交互** | 跟随光标、点击反馈、拖拽停留、多状态切换，全都能实现 |
+| **一键打包** | 确认效果后自动构建为 Windows / macOS / Linux 安装包 |
+| **设置记忆** | 宠物大小、行为开关、位置偏好，重启后照样记得 |
 
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/supercat.git
-   ```
+---
 
-2. 将 `supercat` 文件夹复制到你的 AI Agent Skills 目录：
+## 安装
 
-   - **Trae**: `~/.agents/skills/` 或 IDE 设置中指定的 Skills 路径
-   - **其他 IDE**: 请参考对应 IDE 的 Skill/Plugin 安装文档
+### 方式一：一行命令安装（推荐）
 
-3. 重启 IDE，Agent 将自动识别并加载 Supercat Skill。
+```bash
+npx skills add https://github.com/xigua/supercat-skills --skill supercat-skills
+```
 
-### 使用方法
+### 方式二：把下面这段话直接发给 AI
 
-在 Agent 对话中直接描述你的桌面宠物需求，例如：
+帮我安装 supercat-skills 这个 skill。请按下面步骤做：
 
-> "帮我做一个会跟着鼠标走的桌面猫咪，我有素材图片。"
+1. 确保 `~/.claude/skills/` 目录存在（不存在就创建）
+2. 执行 `git clone https://github.com/xigua/supercat-skills.git ~/.claude/skills/supercat-skills`
+3. 验证：`ls ~/.claude/skills/supercat-skills/` 应该看到 `SKILL.md`、`agents/`、`references/` 三项
+4. 告诉我安装好了，之后我说"帮我做一只桌面宠物"之类的话就会触发这个 skill
 
-Supercat 会引导你完成以下流程：
+把这段话复制粘贴给 Claude Code / Cursor / 任何有 shell 权限的 AI Agent，它会自动完成安装。
 
-1. **规划素材**：提供可复用的素材生成提示词（支持豆包、即梦等外部工具）
-2. **素材检查**：检查你提供的素材是否符合透明度、帧率、命名等规范
-3. **浏览器预览**：先构建可在浏览器中预览的版本，确认效果
-4. **桌面打包**：确认无误后，打包为 Tauri 桌面应用
+### 方式三：手动命令行
 
-### 项目结构
+```bash
+git clone https://github.com/xigua/supercat-skills.git ~/.claude/skills/supercat-skills
+```
+
+> 如果你使用的是 Trae，请将路径替换为 `~/.agents/skills/supercat-skills`。
+
+---
+
+## 快速开始
+
+安装完成后，在 Agent 对话中直接描述你的桌面宠物需求，例如：
+
+> "我要一只黑白奶牛猫，能跟着鼠标跑，空闲的时候舔爪子，你告诉我需要什么素材。"
+
+Supercat-skills 会立刻给你一份**素材清单 + 生成提示词**，你可以直接丢给豆包、即梦、Midjourney 等工具生成图片。
+
+把素材丢回对话框后，它会：
+
+1. **质检** —— 尺寸对不对？透明通道干净吗？命名规范吗？
+2. **开发** —— 自动写出 Vue + Tauri 的完整项目代码
+3. **预览** —— 启动本地服务器，你在浏览器里先看效果
+4. **交付** —— 你点个头，它就打包成 `.exe` / `.dmg` / `.AppImage`
+
+---
+
+## 示例：从 0 到一只桌面猫
 
 ```
-supercat/
-├── SKILL.md                      # Skill 核心定义与工作流程
+你：想做桌面宠物
+AI：建议做 4 组动画：idle（待机）、walk（行走）、lick（舔毛）、sleep（睡觉）。
+      每组 8-12 帧，透明 PNG，命名格式：idle_01.png ~ idle_12.png。
+      以下是即梦可用的提示词……
+
+你：（丢素材）
+AI：已检查，walk 序列第 7 帧边缘有白边，建议重导。其余通过。
+      现在开始写代码，3 分钟后给预览链接。
+
+你：预览不错，就是走得太快
+AI：已降低 walk 动画帧率，重新编译中……
+
+你：可以了，打包吧
+AI：Windows 安装包已生成：supercat-pet_0.1.0_x64-setup.exe
+```
+
+---
+
+## 技术栈
+
+- **前端**：Vue 3 + TypeScript
+- **桌面端**：Tauri（Rust 驱动，包体极小，内存占用低）
+- **预览**：Vite 热更新，浏览器秒开
+- **窗口**：透明背景、忽略鼠标事件、始终置顶、多显示器感知
+
+---
+
+## 项目结构
+
+```
+supercat-skills/
+├── SKILL.md                      # Skill 核心逻辑与工作流定义
 ├── agents/
-│   └── openai.yaml               # Agent 接口配置
-├── references/
-│   ├── asset-generation.md       # 素材生成规范与 QA 检查
-│   ├── from-zero-build.md        # 从零构建完整项目指南
-│   ├── implementation-patterns.md # 交互与桌面端实现模式
-│   └── code-recipes.md           # Vue/Tauri 可复用代码片段
+│   └── openai.yaml               # Agent 接口与触发配置
+└── references/
+    ├── asset-generation.md       # 素材规范、提示词模板、QA checklist
+    ├── from-zero-build.md        # 从空文件夹到可运行项目的完整指南
+    ├── implementation-patterns.md # 鼠标跟随/拖拽/设置面板等交互模式
+    └── code-recipes.md           # 可直接复制的 Vue/Tauri 代码片段
 ```
 
-## 核心原则
+---
 
-- **不重复生成素材**：Skill 不会调用图像/视频生成模型，而是给你提示词，让你在外部工具生成
-- **素材未检查不实现**：最终渲染代码只有在素材通过检查后才编写
-- **未预览不打包**：浏览器预览通过并得到你确认后，才进入桌面打包阶段
-- **保持透明素材纯净**：透明 PNG/WebP 直接绘制，不做额外的绿幕处理或边缘清理
+## 贡献与支持
 
-## 贡献
+有想法？发现 bug？或者造了一只超酷的宠物想秀一下？
 
-欢迎提交 Issue 和 PR 来改进 Supercat。
+- 提交 [Issue](https://github.com/xigua/supercat-skills/issues) 反馈问题
+- 提交 [PR](https://github.com/xigua/supercat-skills/pulls) 完善 Skill
+- 点个 Star，让更多人养上桌面宠物
+
+---
 
 ## License
 
-MIT
+MIT —— 随便用，随便改，造出有趣的宠物记得分享。

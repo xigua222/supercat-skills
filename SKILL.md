@@ -1,5 +1,5 @@
 ---
-name: supercat
+name: supercat-skills
 description: Build, debug, optimize, preview, and package Tauri/Vue desktop pet apps
   driven by user-provided visual assets. Use for desktop companions, virtual cats,
   mascot pets, transparent-window apps, cursor-follow interactions, asset QA,
